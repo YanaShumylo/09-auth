@@ -4,12 +4,12 @@ import { User } from '../types/user';
 import { api } from '../app/api/api';
 
 export interface RegisterRequest {
-  username: string;
+  password: string;
   email: string;
 }
 
 export interface LoginRequest {
-  username: string;
+  password: string;
   email: string;
 }
 
@@ -34,8 +34,8 @@ export const checkSession = async () => {
 export const logout = async (): Promise<void> => {
 await api.post('/auth/logout')};
 
-
 export const getMe = async () => {
   const { data } = await api.get<User>('/users/me');
-  return data;};
+  return data;
+};
 

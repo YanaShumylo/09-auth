@@ -15,8 +15,10 @@ const setUser = useAuthStore((state) => state.setUser);
     const handleSubmit = async (formData: FormData) => {
         try {
             
-            const formValues = Object.fromEntries(formData) as LoginRequest;
-            
+    const formValues: LoginRequest = {
+  email: formData.get('email') as string,
+  password: formData.get('password') as string,
+};   
             const res = await login(formValues);
             
             if (res) {
@@ -61,3 +63,5 @@ const setUser = useAuthStore((state) => state.setUser);
         </main>
     );
 };
+
+export default SignInPage;

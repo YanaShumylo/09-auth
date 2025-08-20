@@ -3,14 +3,17 @@ import type { NewNoteData, Note } from "../types/note";
 import { handleApiError } from "./handleApiError";
 import { api } from '../app/api/api';
 
-const myKey = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-if (!myKey) {
-  throw new Error("NEXT_PUBLIC_NOTEHUB_TOKEN is not defined in .env file");
-}
-const myApiKey = `Bearer ${myKey}`;
+// const myKey = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
+// if (!myKey) {
+//   throw new Error("NEXT_PUBLIC_NOTEHUB_TOKEN is not defined in .env file");
+// }
+// const myApiKey = `Bearer ${myKey}`;
 
-axios.defaults.baseURL = "https://notehub-public.goit.study/api";
-axios.defaults.headers.common['Authorization'] = myApiKey;
+// axios.defaults.baseURL = "https://notehub-api.goit.study";
+// axios.defaults.headers.common['Authorization'] = myApiKey;
+
+const baseURL = process.env.NEXT_PUBLIC_API_URL + '/api';
+
 
 interface FetchNotesParams{
    tag?: string;
