@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { NewNoteData, Note } from "../types/note";
 import { handleApiError } from "./handleApiError";
+import { api } from '../app/api/api';
 
 const myKey = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 if (!myKey) {
@@ -29,14 +30,14 @@ interface FetchNotesApiResponse{
  notes: Note[];
   totalPages: number;
 }
-
+ 
 export const fetchNotes = async ({
   tag,
   search,
   page = 1,
   perPage = 12
 }: FetchNotesParams): Promise<NotesResponse> => {
-  const res = await axios.get<FetchNotesApiResponse>('/notes', {
+  const res = await api.get<FetchNotesApiResponse>('/notes', {
     params: {
       tag,
       page,
@@ -53,10 +54,9 @@ export const fetchNotes = async ({
         };
     };
 
-
 export const createNote = async (noteData: NewNoteData): Promise<Note> => {
   try {
-    const res = await axios.post<{ note: Note }>(
+    const res = await api.post<{ note: Note }>(
       "/notes",
       noteData,
       {
@@ -76,7 +76,7 @@ export const createNote = async (noteData: NewNoteData): Promise<Note> => {
 
 export const deleteNote = async (noteId: string): Promise<Note> => {
   try {
-  const response = await axios.delete<{ note: Note }>(`/notes/${noteId}`);
+  const response = await api.delete<{ note: Note }>(`/notes/${noteId}`);
   return response.data.note;
 }catch (error) {
     handleApiError(error, "delete note");
@@ -86,7 +86,7 @@ export const deleteNote = async (noteId: string): Promise<Note> => {
 
 export const fetchNoteById = async (id: string): Promise<Note> => {
   try {
-  const res = await axios.get<Note>(`/notes/${id}`);
+  const res = await api.get<Note>(`/notes/${id}`);
   return res.data;
 } catch (error) {
     handleApiError(error, "fetch note");

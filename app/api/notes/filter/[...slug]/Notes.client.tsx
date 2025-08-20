@@ -5,14 +5,14 @@ import { useDebounce } from "use-debounce";
 import { useQuery } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import css from "../../../../components/NotesPage/NotesPage.module.css";
-import SearchBox from "../../../../components/SearchBox/SearchBox";
-import Pagination from "../../../../components/Pagination/Pagination";
-import NoteList from "../../../../components/NoteList/NoteList";
+import SearchBox from "../../../../../components/SearchBox/SearchBox";
+import Pagination from "../../../../../components/Pagination/Pagination";
+import NoteList from "../../../../../components/NoteList/NoteList";
 // import Modal from "../../../../components/Modal/Modal";
 // import NoteForm from "../../../../components/NoteForm/NoteForm";
-import{ fetchNotes } from "../../../../lib/api";
-import Loader from "../../../../app/loading";
-import ErrorMessage from "../../../../components/Error/Error";
+import{ fetchNotes } from "../../../../../lib/api";
+import Loader from "../../../../loading";
+import ErrorMessage from "../../../../../components/Error/Error";
 import Link from 'next/link';
 
 interface NotesClientProps {
