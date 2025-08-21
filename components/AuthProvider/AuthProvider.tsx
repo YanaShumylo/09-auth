@@ -1,5 +1,5 @@
 'use client';
-import { getMe } from '../../lib/clientApi';
+import { getMe, checkSession } from '../../lib/clientApi';
 import { useAuthStore } from '../../lib/store/authStore';
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
@@ -22,7 +22,7 @@ const AuthProvider = ({ children }: Props) => {
       setLoading(true);
 
       try {
-        // const isAuthenticated = await checkServerSession();
+        const isAuthenticated = await checkSession();
 
         if (isAuthenticated) {
           const user = await getMe();

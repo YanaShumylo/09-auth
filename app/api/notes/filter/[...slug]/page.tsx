@@ -28,7 +28,7 @@ export const generateMetadata = async ({ params }: NoteDetailsProps): Promise<Me
   openGraph: {
       title,
       description,
-      url: `https://notehub-public.goit.study/notes/filter/${tag ?? "all"}`,
+      url: `https://notehub-api.goit.study/notes/filter/${tag ?? "all"}`,
       siteName: 'NoteHub',
       images: [
         {

@@ -18,9 +18,7 @@ const Header =  () => {
          <li className={css.navigationItem}>
           <TagsMenu/>
           </li> 
-          <li>
-            <AuthNavigation/>
-          </li>
+          <AuthNavigation/>
       </ul>
     </nav>
   </header>);

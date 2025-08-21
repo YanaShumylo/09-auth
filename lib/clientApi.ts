@@ -14,7 +14,12 @@ export interface LoginRequest {
 }
 
 export interface CheckSessionRequest {
-  success: boolean;};
+  success: boolean;
+};
+
+export interface UpdateUserRequest {
+  username?: string;
+}
 
 export const register = async (data: RegisterRequest) => {
   const res = await api.post<User>('/auth/register', data);
@@ -37,5 +42,10 @@ await api.post('/auth/logout')};
 export const getMe = async () => {
   const { data } = await api.get<User>('/users/me');
   return data;
+};
+
+export const updateMe = async (payload: UpdateUserRequest) => {
+  const res = await api.patch<User>('/user/me');
+  return res.data;
 };
 
