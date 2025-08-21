@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import { api } from '../app/api/api';
-
+import { User } from '../types/user';
 
 
 export const checkServerSession = async () => {
@@ -16,3 +16,17 @@ export const checkServerSession = async () => {
   return res;
 };
 
+export const getMeServer = async (): Promise<User | null> => {
+  try {
+    const cookieStore = cookies(); 
+    const res = await api.get<User>('/users/me', {
+      headers: {
+        Cookie: cookieStore.toString(),
+      },
+    });
+    return res.data;
+  } catch (error) {
+    console.error('Failed to fetch user on server:', error);
+    return null;
+  }
+};

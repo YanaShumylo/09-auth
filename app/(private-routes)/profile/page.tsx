@@ -1,7 +1,8 @@
 import css from "./ProfilePage.module.css";
 import { Metadata } from "next";
-import { getMe } from "../../../lib/clientApi";
+import { getMeServer } from "../../../lib/serverApi";
 import Image from "next/image";
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Profile',
@@ -9,8 +10,13 @@ export const metadata: Metadata = {
 };
 
 const Profile = async () => {
-  const user = await getMe();
+  const user = await getMeServer();
 
+  if (!user) {
+    return <main className={css.mainContent}>
+      <p>You are not logged in. <a href="/login">Login here</a>.</p>
+    </main>;
+  }
     return (
     <main className={css.mainContent}>
   <div className={css.profileCard}>
