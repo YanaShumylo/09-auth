@@ -2,7 +2,7 @@ import css from "./ProfilePage.module.css";
 import { Metadata } from "next";
 import { getMeServer } from "../../../lib/serverApi";
 import Image from "next/image";
-import { redirect } from 'next/navigation';
+// import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Profile',
