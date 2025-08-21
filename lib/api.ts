@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import type { NewNoteData, Note } from "../types/note";
 import { handleApiError } from "./handleApiError";
 import { api } from '../app/api/api';
@@ -12,7 +12,7 @@ import { api } from '../app/api/api';
 // axios.defaults.baseURL = "https://notehub-api.goit.study";
 // axios.defaults.headers.common['Authorization'] = myApiKey;
 
-const baseURL = process.env.NEXT_PUBLIC_API_URL + '/api';
+// const baseURL = process.env.NEXT_PUBLIC_API_URL + '/api';
 
 
 interface FetchNotesParams{

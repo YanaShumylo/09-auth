@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import css from './TagsMenu.module.css';
 
-const fixedTags = ['All', 'Todo', 'Work', 'Personal', 'Meeting', 'Shopping'];
+const fixedTags = ['All', 'Todo', 'Work', 'Personal', 'Meeting', 'Shopping','Ideas', 'Travel', 'Finance', 'Health', 'Important'];
 
 const TagsMenu = () => {
     const [isOpen, setIsOpen] = useState(false);

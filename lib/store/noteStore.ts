@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware';
 interface DraftNote {
   title: string;
   content: string;
-  tag: 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping';
+  tag: 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping' |'Ideas'| 'Travel'| 'Finance'| 'Health'| 'Important';
 }
 
 interface NoteStore {

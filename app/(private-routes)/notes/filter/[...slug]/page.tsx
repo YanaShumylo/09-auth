@@ -1,5 +1,5 @@
 
-import css from "../../../../components/NotesPage/NotesPage.module.css";
+import css from "../../../../../components/NotesPage/NotesPage.module.css";
 import { fetchNotes } from "../../../../../lib/api";
 import NotesClient from "./Notes.client";
 import { Metadata } from 'next';

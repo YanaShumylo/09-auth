@@ -2,8 +2,8 @@
 import Link from "next/link";
 import css from "./SidebarNotes.module.css";
 
-const FIXED_TAGS = ["All", "Todo", "Work", "Personal", "Meeting", "Shopping"];
-
+const FIXED_TAGS = ["All", "Todo", "Work", "Personal", "Meeting", "Shopping", "Ideas", "Travel", "Finance", "Health", "Important" ];
+ 
 export default function SidebarNotes () {
     
     return (
