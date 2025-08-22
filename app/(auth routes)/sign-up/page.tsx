@@ -3,7 +3,7 @@
 import css from "./SignUpPage.module.css";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { register, RegisterRequest } from '../../../lib/clientApi';
+import { register, RegisterRequest } from '../../../lib/api/clientApi';
 import { logErrorResponse } from '../../api/_utils/utils';
 import { isAxiosError } from 'axios';
 import { useAuthStore } from '../../../lib/store/authStore';

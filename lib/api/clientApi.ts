@@ -1,7 +1,7 @@
 'use client';
-import type { NewNoteData, Note } from "../types/note";
+import type { NewNoteData, Note } from "../../types/note";
 import { handleApiError } from "./handleApiError";
-import { User } from '../types/user';
+import { User } from '../../types/user';
 import { api } from '../lib/api';
 
 interface FetchNotesParams{

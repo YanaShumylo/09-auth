@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { api } from '../lib/api';
-import { User } from '../types/user';
-import type { Note } from "../types/note";
+import { User } from '../../types/user';
+import type { Note } from "../../types/note";
 import type { AxiosResponse } from "axios";
 
 interface FetchNotesParams{

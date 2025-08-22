@@ -1,6 +1,6 @@
 import css from "./ProfilePage.module.css";
 import { Metadata } from "next";
-import { getMeServer } from "../../../lib/serverApi";
+import { getMeServer } from "../../../lib/api/serverApi";
 import Image from "next/image";
 // import { redirect } from 'next/navigation';
 

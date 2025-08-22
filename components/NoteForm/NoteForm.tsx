@@ -3,7 +3,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { createNote } from "../../lib/clientApi";
+import { createNote } from "../../lib/api/clientApi";
 // import { Formik, Form, Field, ErrorMessage, type FormikHelpers } from "formik";
 import { useId } from "react";
 // import * as Yup from "yup";

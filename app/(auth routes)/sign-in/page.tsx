@@ -3,7 +3,7 @@
 import css from "./SignInPage.module.css";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { login, LoginRequest } from '../../../lib/clientApi';
+import { login, LoginRequest } from '../../../lib/api/clientApi';
 import { logErrorResponse } from '../../api/_utils/utils';
 import { isAxiosError } from 'axios';
 import { useAuthStore } from '../../../lib/store/authStore';

@@ -1,5 +1,5 @@
 'use client';
-import { getMe, checkSession } from '../../lib/clientApi';
+import { getMe, checkSession } from '../../lib/api/clientApi';
 import { useAuthStore } from '../../lib/store/authStore';
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';

@@ -1,6 +1,6 @@
 
 import css from "../../../../../components/NotesPage/NotesPage.module.css";
-import { fetchNotesServer } from "../../../../../lib/serverApi";
+import { fetchNotesServer } from "../../../../../lib/api/serverApi";
 import NotesClient from "./Notes.client";
 import { Metadata } from 'next';
 

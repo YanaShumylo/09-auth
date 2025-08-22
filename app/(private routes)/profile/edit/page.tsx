@@ -2,7 +2,7 @@
 
 import css from '../edit/EditProfilePage.module.css';
 import { useState, useEffect } from 'react';
-import { getMe, updateMe } from '../../../../lib/clientApi';
+import { getMe, updateMe } from '../../../../lib/api/clientApi';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
