@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import { api } from '../lib/api';
+import { api } from './api';
 import { User } from '../../types/user';
 import type { Note } from "../../types/note";
 import type { AxiosResponse } from "axios";

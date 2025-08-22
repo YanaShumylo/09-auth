@@ -2,7 +2,7 @@
 import type { NewNoteData, Note } from "../../types/note";
 import { handleApiError } from "./handleApiError";
 import { User } from '../../types/user';
-import { api } from '../lib/api';
+import { api } from './api';
 
 interface FetchNotesParams{
    tag?: string;
