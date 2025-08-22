@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import { api } from '../lib/api';
 import { User } from '../types/user';
 import type { Note } from "../types/note";
+import type { AxiosResponse } from "axios";
 
 interface FetchNotesParams{
    tag?: string;
@@ -44,7 +45,7 @@ export const fetchNotesServer = async ({
   };
 };
 
-export const checkServerSession = async (): Promise<boolean> => {
+export const checkServerSession = async (): Promise<AxiosResponse> => {
   // Дістаємо поточні cookie
   const cookieStore =  cookies();
   const res = await api.get('/auth/session', {
@@ -54,7 +55,7 @@ export const checkServerSession = async (): Promise<boolean> => {
     },
   });
   // Повертаємо повний респонс, щоб middleware мав доступ до нових cookie
-  return res.data.success;
+  return res;
 };
 
 export const getMeServer = async (): Promise<User | null> => {
