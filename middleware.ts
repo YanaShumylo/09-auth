@@ -75,4 +75,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 }
-export const config = {matcher: ['/profile/:path*', '/sign-in', '/sign-up'],};
+
+export const config = {
+  matcher: ['/profile/:path*', '/sign-in', '/sign-up'],
+};

@@ -1,6 +1,6 @@
 
 import css from "../../../../../components/NotesPage/NotesPage.module.css";
-import { fetchNotes } from "../../../../../lib/api";
+import { fetchNotesServer } from "../../../../../lib/serverApi";
 import NotesClient from "./Notes.client";
 import { Metadata } from 'next';
 
@@ -11,7 +11,7 @@ interface NoteDetailsProps {
 export const generateMetadata = async ({ params }: NoteDetailsProps): Promise<Metadata> => {
   const { slug } = await params;
   const tag = slug?.[0].toLowerCase() === "all" ? undefined : slug?.[0];
-  const initialData = await fetchNotes({
+  const initialData = await fetchNotesServer({
     tag,
     search: "",
     page: 1,
@@ -47,7 +47,7 @@ export default async function NotesPage({ params }: NoteDetailsProps) {
   const { slug } = await params;
   const tag = slug?.[0].toLowerCase() === "all" ? undefined : slug?.[0];
 
-  const initialData = await fetchNotes({
+  const initialData = await fetchNotesServer({
     tag,
     search: "",
     page: 1,

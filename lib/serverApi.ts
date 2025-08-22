@@ -1,11 +1,52 @@
 import { cookies } from 'next/headers';
-import { api } from '../app/api/api';
+import { api } from '../lib/api';
 import { User } from '../types/user';
+import type { Note } from "../types/note";
 
+interface FetchNotesParams{
+   tag?: string;
+    page?: number;
+    perPage?: number;
+    search?: string;
+}
 
-export const checkServerSession = async () => {
+interface NotesResponse{
+  data: Note[];
+  totalPages: number;
+  page: number;
+  perPage: number;
+}
+
+interface FetchNotesApiResponse{
+ notes: Note[];
+  totalPages: number;
+}
+
+export const fetchNotesServer = async ({
+  tag,
+  search,
+  page = 1,
+  perPage = 12,
+}: FetchNotesParams): Promise<NotesResponse> => {
+  const cookieStore = cookies();
+  const res = await api.get<FetchNotesApiResponse>('/notes', {
+    params: { tag, page, perPage, ...(search?.trim() ? { search } : {}) },
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+
+  return {
+    page,
+    perPage,
+    data: res.data.notes,
+    totalPages: res.data.totalPages,
+  };
+};
+
+export const checkServerSession = async (): Promise<boolean> => {
   // Дістаємо поточні cookie
-  const cookieStore = await cookies();
+  const cookieStore =  cookies();
   const res = await api.get('/auth/session', {
     headers: {
       // передаємо кукі далі
@@ -13,7 +54,7 @@ export const checkServerSession = async () => {
     },
   });
   // Повертаємо повний респонс, щоб middleware мав доступ до нових cookie
-  return res;
+  return res.data.success;
 };
 
 export const getMeServer = async (): Promise<User | null> => {

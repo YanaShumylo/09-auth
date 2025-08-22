@@ -10,7 +10,7 @@ import Pagination from "../../../../../components/Pagination/Pagination";
 import NoteList from "../../../../../components/NoteList/NoteList";
 // import Modal from "../../../../components/Modal/Modal";
 // import NoteForm from "../../../../components/NoteForm/NoteForm";
-import{ fetchNotes } from "../../../../../lib/api";
+import{ fetchNotes } from "../../../../../lib/clientApi";
 import Loader from "../../../../loading";
 import ErrorMessage from "../../../../../components/Error/Error";
 import Link from 'next/link';
