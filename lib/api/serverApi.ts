@@ -44,6 +44,17 @@ export const fetchNotesServer = async ({
     totalPages: res.data.totalPages,
   };
 };
+export const fetchNoteByIdServer = async (id: string): Promise<Note> => {
+  const cookieStore = cookies();
+
+  const res = await api.get<Note>(`/notes/${id}`, {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+
+  return res.data;
+};
 
 export const checkServerSession = async (): Promise<AxiosResponse> => {
   // Дістаємо поточні cookie

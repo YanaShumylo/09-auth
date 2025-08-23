@@ -2,7 +2,7 @@ import css from "./ProfilePage.module.css";
 import { Metadata } from "next";
 import { getMeServer } from "../../../lib/api/serverApi";
 import Image from "next/image";
-// import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Profile',
@@ -14,7 +14,7 @@ const Profile = async () => {
 
   if (!user) {
     return <main className={css.mainContent}>
-      <p>You are not logged in. <a href="/login">Login here</a>.</p>
+      <p>You are not logged in. <Link href="/login">Login here</Link>.</p>
     </main>;
   }
     return (
@@ -22,9 +22,9 @@ const Profile = async () => {
   <div className={css.profileCard}>
       <div className={css.header}>
 	     <h1 className={css.formTitle}>Profile Page</h1>
-	     <a href="/profile/edit" className={css.editProfileButton}>
+	     <Link href="/profile/edit" className={css.editProfileButton}>
 	       Edit Profile
-	     </a>
+	     </Link>
 	   </div>
      <div className={css.avatarWrapper}>
       <Image

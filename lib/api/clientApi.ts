@@ -18,7 +18,7 @@ interface NotesResponse{
   perPage: number;
 }
 
-interface FetchNotesApiResponse{
+interface FetchNotesResponseData{
  notes: Note[];
   totalPages: number;
 }
@@ -43,7 +43,7 @@ export const fetchNotes = async ({
   page = 1,
   perPage = 12
 }: FetchNotesParams): Promise<NotesResponse> => {
-  const res = await api.get<FetchNotesApiResponse>('/notes', {
+  const res = await api.get<FetchNotesResponseData>('/notes', {
     params: {
       tag,
       page,
@@ -100,12 +100,12 @@ export const fetchNoteById = async (id: string): Promise<Note> => {
   }
 };
 
-export const register = async (data: RegisterRequest) => {
+export const register = async (data: RegisterRequest): Promise<User> => {
   const res = await api.post<User>('/auth/register', data);
   return res.data;
 };
 
-export const login = async (data: LoginRequest) => {
+export const login = async (data: LoginRequest): Promise<User> => {
   const res = await api.post<User>('/auth/login', data);
   return res.data;
 };
@@ -119,12 +119,12 @@ export const logout = async (): Promise<void> => {
   }
 };
 
-export const getMe = async () => {
+export const getMe = async (): Promise<User> => {
   const { data } = await api.get<User>('/users/me');
   return data;
 };
 
-export const updateMe = async (data: UpdateUserRequest) => {
+export const updateMe = async (data: UpdateUserRequest): Promise<User> => {
   const res = await api.patch<User>('/users/me', data);
   return res.data;
 };

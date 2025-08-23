@@ -5,12 +5,14 @@ import { useState, useEffect } from 'react';
 import { getMe, updateMe } from '../../../../lib/api/clientApi';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { useAuthStore } from '../../../../lib/store/authStore';
 
 const EditProfilePage = () => {
     const [userName, setUserName] = useState('');
 const [email, setEmail] = useState('');
     const [avatar, setAvatar] = useState('/default-avatar.png');
     
+    const setUser = useAuthStore((state) => state.setUser);
     const router = useRouter();
 
     useEffect(() => {
@@ -27,8 +29,9 @@ const [email, setEmail] = useState('');
   const handleSaveUser = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      await updateMe({ username: userName });
-      router.push('/profile');
+      const updatedUser = await updateMe({ username: userName });
+       setUser(updatedUser);
+    router.push('/profile');
     } catch (error) {
       console.error('Update failed', error);
     }
